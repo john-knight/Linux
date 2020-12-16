@@ -65,12 +65,12 @@
 
 # 一切较为实用的Shell脚本
 ####Search.sh. :
- #!/bin/sh
- basePath=/opt/apps/deposit-interfaces/logs
- if [ $# != 1 ]; then
-    echo usage: $0 \{TRACE_ID\}
-    exit 1
- fi
+  #!/bin/sh
+  basePath=/opt/apps/deposit-interfaces/logs
+  if [ $# != 1 ]; then
+     echo usage: $0 \{TRACE_ID\}
+     exit 1
+  fi
 
- cat ${basePath}/*.log | tr "\n" "\030" | sed 's/\o0302020-/\n2020-/g' | grep $1 | sort | tr "\030" "\n"
+  cat ${basePath}/*.log | tr "\n" "\030" | sed 's/\o0302020-/\n2020-/g' | grep $1 | sort | tr "\030" "\n"
 
