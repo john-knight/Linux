@@ -74,3 +74,20 @@
 
   cat ${basePath}/*.log | tr "\n" "\030" | sed 's/\o0302020-/\n2020-/g' | grep $1 | sort | tr "\030" "\n"
 
+
+
+#火焰图
+###火焰图使用arths,https://arthas.aliyun.com/doc/profiler.html
+###1. Java -jar /opt/arthas/arthas-boot.jar
+###2. 选择相应服务
+###3. profiler start
+###4. profiler stop --file /tmp/output.svg
+###5. 从堡垒机文件管理器下载
+###6. 浏览器打开svg文件
+#Dump
+###1. jmap -dump:format=b,file=/tmp/abc.bin <pid>
+###2. 打包: tar zcvf abc.bin.tar.gz abc.bin
+###3. 分割文件: split -b 200m abc.bin.tar.gz abc.bin.tar.gz_
+###4. 从堡垒机文件管理器下载
+###5. 本地解压 cat abc.bin.tar.gz_* | tar xv
+###6. 使用mat或者jprofiler分析dump
